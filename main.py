@@ -16,6 +16,7 @@ def kill_gphoto2_process():
             os.kill(pid, signal.SIGKILL)
 
 
+# TODO: Add prompt for session name or param when running the script
 session_name = 'pyLapse_Test'
 
 shot_date = datetime.now().strftime('%Y%m%d')
@@ -34,8 +35,23 @@ def create_save_directory():
     except:
         print('Creation of the folder has failed. Already exists?')
     os.chdir(download_location)
+
+
 # TODO: Add time interval and running period (time length or number of images)
 def capture_images():
     gp(trigger_command)
     sleep(3)
     gp(download_command)
+
+
+# rename pictures taken to a more useful naming for timelapse
+def rename_files(ID):
+    for filename in os.listdir('.'):
+        if len(filename) < 13:
+            if filename.endswith('.JPEG'):
+                os.rename(filename, (shot_date_time + ID + '.JPEG'))
+                print('JPEG Renamed')
+            elif filename.endswith('.CR2'):
+                os.rename(filename, (shot_date_time + ID + '.CR2'))
+                print('RAW Renamed')
+
