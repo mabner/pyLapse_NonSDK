@@ -55,3 +55,8 @@ def rename_files(ID):
                 os.rename(filename, (shot_date_time + ID + '.CR2'))
                 print('RAW Renamed')
 
+
+kill_gphoto2_process()
+create_save_directory()
+capture_images()
+rename_files(session_name)
