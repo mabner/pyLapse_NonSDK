@@ -5,7 +5,7 @@ import signal, os, subprocess
 
 
 # kills the gphoto2 process opened by gvfs
-def killgPhoto2Process():
+def kill_gphoto2_process():
     p = subprocess.Popen(['ps', '-A'], stdout=subprocess.PIPE)
     out, err = p.communicate()
 
@@ -19,10 +19,10 @@ def killgPhoto2Process():
 session_name = 'pyLapse_Test'
 
 shot_date = datetime.now().strftime('%Y%m%d')
-shot_time = datetime.now().strftime('%Y%m%d-%H%M%S')
+shot_date_time = datetime.now().strftime('%Y%m%d-%H%M%S')
 
-triggerCommand = ['--trigger-capture']
-downloadCommand = ['--get-all-files']
+trigger_command = ['--trigger-capture']
+download_command = ['--get-all-files']
 
 folder_name = shot_date
 download_location = '/home/leyd/Pictures/Timelapse' + folder_name
