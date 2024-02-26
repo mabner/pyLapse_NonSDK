@@ -27,3 +27,10 @@ download_command = ['--get-all-files']
 folder_name = shot_date
 download_location = '/home/leyd/Pictures/Timelapse' + folder_name
 
+
+def create_save_directory():
+    try:
+        os.makedirs(download_location)
+    except:
+        print('Creation of the folder has failed. Already exists?')
+    os.chdir(download_location)
