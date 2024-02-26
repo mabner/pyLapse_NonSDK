@@ -34,3 +34,8 @@ def create_save_directory():
     except:
         print('Creation of the folder has failed. Already exists?')
     os.chdir(download_location)
+# TODO: Add time interval and running period (time length or number of images)
+def capture_images():
+    gp(trigger_command)
+    sleep(3)
+    gp(download_command)
